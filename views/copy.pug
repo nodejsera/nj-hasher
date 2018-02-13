@@ -1,0 +1,18 @@
+doctype html
+html
+  head
+    style
+      include style.css
+  body
+
+    input#out.out(type='text', value={hashed})
+    button.but(onclick='copy()') Copy text
+    script.
+      function copy() {
+      var copyText = document.getElementById("out");
+      copyText.select();
+      document.execCommand("Copy");
+      alert("Copied the text: " + copyText.value);
+      }
+    br
+    br
