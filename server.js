@@ -122,12 +122,19 @@ app.post('/hash', function(req,res){
 })
 
 app.get('/email', function(req,res){
+	res.set({
+        'Access-Control-Allow-Origin' :'*'
+    });
+    return res.redirect('views/nj-email.html');
 
+})
+
+app.post('/email', function(req,res){
 	var email= req.body.email;
     //console.log("SENDGRID_ENV : " + key);
     const msg = {
         to: process.env.EMAIL_TO,
-        from: process.env.EMAIL_FROM,				//Your email comes here
+        from: process.env.EMAIL_FROM,				
         subject: NEW_SUBSCRIPTION,
         html: email ,
     };
@@ -137,6 +144,8 @@ app.get('/email', function(req,res){
     return res.redirect('/public/nj-email.html');
 
 })
+
+
 
 
 
