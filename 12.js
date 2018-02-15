@@ -4,12 +4,6 @@ var crypto = require('crypto');
 var app = express();
 
 
-//Sendgrid Email system
-const sgMail = require('@sendgrid/mail');
-var key = process.env.SENDGRID_KEY;		
-sgMail.setApiKey(key);
-
-
 app.get('/', function(req,res){
     res.set({
         'Access-Control-Allow-Origin' :'*'
@@ -120,25 +114,6 @@ app.post('/hash', function(req,res){
     res.send(reshash);
 
 })
-
-app.get('/email', function(req,res){
-
-	var email= req.body.email;
-    //console.log("SENDGRID_ENV : " + key);
-    const msg = {
-        to: process.env.EMAIL_TO,
-        from: process.env.EMAIL_FROM,				//Your email comes here
-        subject: NEW_SUBSCRIPTION,
-        html: email ,
-    };
-
-    sgMail.send(msg);
-
-    return res.redirect('/public/nj-email.html');
-
-})
-
-
 
 app.listen(process.env.PORT || 3000,function(){
 	console.log("App listening at 6899");
