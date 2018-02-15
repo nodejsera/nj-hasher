@@ -135,13 +135,13 @@ app.post('/email', function(req,res){
     const msg = {
         to: process.env.EMAIL_TO,
         from: process.env.EMAIL_FROM,				
-        subject: NEW_SUBSCRIPTION,
+        subject: 'NEW_SUBSCRIPTION',
         html: email ,
     };
 
     sgMail.send(msg);
 
-    return res.redirect('/public/nj-email.html');
+    return res.redirect('/views/nj-email.html');
 
 })
 
