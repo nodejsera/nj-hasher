@@ -9,9 +9,9 @@ app.get('/', function(req,res){
         'Access-Control-Allow-Origin' :'*'
     });
     return res.redirect('views/nj-hasher.html');
-}).listen(3000);
+}).listen(80);
 
-console.log('Server listening at : 3000');
+console.log('Server listening at : 80');
 
 app.use('/views', express.static(__dirname + '/views'));
 app.use(bodyParser.json());
