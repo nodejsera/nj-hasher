@@ -9,9 +9,9 @@ app.get('/', function(req,res){
         'Access-Control-Allow-Origin' :'*'
     });
     return res.redirect('views/nj-hasher.html');
-}).listen(80);
+})
 
-console.log('Server listening at : 80');
+
 
 app.use('/views', express.static(__dirname + '/views'));
 app.use(bodyParser.json());
@@ -114,3 +114,7 @@ app.post('/hash', function(req,res){
     res.send(reshash);
 
 })
+
+app.listen(process.env.PORT || 3000,function(){
+	console.log("App listening at 6899");
+});
