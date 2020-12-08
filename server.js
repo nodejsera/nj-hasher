@@ -9,7 +9,7 @@ const sgMail = require('@sendgrid/mail');
 var key = process.env.SENDGRID_KEY;		
 sgMail.setApiKey(key);
 
-
+//commenting from pervious folder
 app.get('/', function(req,res){
     res.set({
         'Access-Control-Allow-Origin' :'*'
