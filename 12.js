@@ -12,7 +12,7 @@ app.get('/', function(req,res){
 })
 
 
-
+//We are just trying to change it
 app.use('/views', express.static(__dirname + '/views'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
